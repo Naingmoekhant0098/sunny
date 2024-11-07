@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap {
+/* fixed width, centered in viewport */
+width: 980px;
+left: -490px;
+margin-left: 50%;
+position: relative;
+}
+
+
+#showcase {
+width: 100%;
+height: 460px;
+background: #16235e; /* Old browsers */
+background: -moz-linear-gradient(top, #16235e 0%, #020223 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #16235e), color-stop(100%, #020223)); /* Chrome, Safari4+ */
+background: -webkit-linear-gradient(top, #16235e 0%, #020223 100%); /* Chrome10+, Safari5.1+ */
+background: -o-linear-gradient(top, #16235e 0%, #020223 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #16235e 0%, #020223 100%); /* IE10+ */
+background: linear-gradient(to bottom, #16235e 0%, #020223 100%); /* W3C */
+-webkit-box-shadow: 0px 0px 13px 5px #DB1242;
+-moz-box-shadow: 0px 0px 13px 5px #DB1242;
+box-shadow: 0px 0px 13px 5px #DB1242;
+border-radius: 8px;
+margin-top: 12px;
+visibility: hidden;
+}
+#showcase img {
+cursor: pointer;
+}
+#item-title {
+color: #F31414;
+font-size: 29px;
+letter-spacing: 0.13em;
+text-shadow: 1px 1px 6px #C72B2B;
+text-align: center;
+margin-top: 30px;
+margin-bottom: 22px;
+}
+.nav {
+text-align: center;
+}
+.nav > button {
+width: 64px;
+height: 36px;
+color: #666;
+font: bold 16px arial;
+text-decoration: none;
+text-align: center;
+margin: 5px;
+text-shadow: 0px 1px 0px #f5f5f5;
+background: #f6f6f6;
+border: solid 2px rgba(0, 0, 0, 0.4);
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+-webkit-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.4);
+-moz-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.4);
+box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.4);
+cursor: pointer;
+}
+.nav > button:active, .nav > button.down {
+background: #dfdfdf;
+border: solid 2px rgba(0, 0, 0, 0.6);
+box-shadow: none;
+}
+.cloud9-item{
+    width: 300px;
+    height: 200px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div id="showcase"> 
+        <img class="cloud9-item" src="images/1.jpg" alt="Alt">
+        <img class="cloud9-item" src="images/2.jpg" alt="Alt"> 
+        <img class="cloud9-item" src="images/3.jpg" alt="Alt"> 
+        <img class="cloud9-item" src="images/4.jpg" alt="Alt">
+        <img class="cloud9-item" src="images/5.jpg" alt="Alt">
+        </div>
+
+        <p id="item-title">&nbsp;</p>
+        <div class="nav">
+            <button class="left">←</button>
+            <button class="right">→</button>
+            </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+    <script src="cloud9carousel-master/cloud9carousel-master/jquery.cloud9carousel.js"></script>
+    
+    <script src="jquery-mousewheel-3.1.13/jquery-mousewheel-3.1.13/jquery.mousewheel.js"></script>
+    <script src="reflection-jquery/js/reflection.js"></script>
+
+
+     
+       <script>
+$(function() {
+var showcase = $("#showcase")
+
+showcase.Cloud9Carousel( {
+    
+yPos: 42,
+yRadius: 48,
+mirrorOptions: {
+gap: 12,
+height: 0.2
+},
+buttonLeft: $(".nav > .left"),
+buttonRight: $(".nav > .right"),
+autoPlay: false,
+farScale: 0.5,
+bringToFront: false,
+ 
+	itemClass: 'cloud9-item',
+	frontItemClass: null,
+	handle: 'carousel',
+bringToFront: true,
+mirror: {   gap: 12,     /* 12 pixel gap between item and reflection */   height: 0.2, /* 20% of item height */   opacity: 0.4 /* 40% opacity at the top */ },
+
+
+
+
+
+onRendered: 'showcaseUp<a href="https://www.jqueryscript.net/time-clock/">date</a>',
+onLoaded: function() {
+showcase.css( 'visibility', 'visible' )
+showcase.css( 'display', 'none' )
+showcase.fadeIn( 1500 )
+
+
+}
+} )
+
+function showcaseUpdated( showcase ) {
+var title = $('#item-title').html(
+$(showcase.nearestItem()).attr( 'alt' )
+)
+
+var c = Math.cos((showcase.floatIndex() % 1) * 2 * Math.PI)
+title.css('opacity', 0.5 + (0.5 * c))
+}
+
+// Simulate physical button click effect
+$('.nav > button').click( function( e ) {
+var b = $(e.target).addClass( 'down' )
+setTimeout( function() { b.removeClass( 'down' ) }, 80 )
+} )
+
+$(document).keydown( function( e ) {
+
+switch( e.keyCode ) {
+/* left arrow */
+case 37:
+$('.nav > .left').click()
+break
+
+/* right arrow */
+case 39:
+$('.nav > .right').click()
+}
+} )
+});
+
+
+
+
+
+
+// Spin the carousel
+$("#carousel").data("carousel").go( Count );
+
+// Spin the carousel to a specific item
+$("#carousel").data("carousel").goTo( Index );
+
+// Returns the 0-based index of the item nearest to the front (integer)
+$("#carousel").data("carousel").nearestIndex();
+
+// Returns a reference to the item object of the item that is nearest to the front (Item object)
+$("#carousel").data("carousel").nearestItem();
+
+// Returns the interpolated number of items rotated from the initial zero position. 
+// In a carousel with 5 items that made three clockwise revolutions, the value will be -15. 
+// If the carousel then further spins half-way to the next item, then the value would be -15.5 (float)
+$("#carousel").data("carousel").itemsRotated();
+
+// Returns an interpolated value of the item "index" at the front of the carousel. 
+// If, for example, the carousel was 20% past item 2 toward the next item, then floatIndex() would return 2.2 (float)
+$("#carousel").data("carousel").floatIndex();
+
+// Disable the carousel (currently irreversible). 
+$("#carousel").data("carousel").deactivate();
+ 
+
+
+
+    </script>
+    
+</body>
+</html>

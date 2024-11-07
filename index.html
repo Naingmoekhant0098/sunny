@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SunnySide</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="aos-master/dist/aos.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+      body {
+        font-family: Poppins, sans-serif;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background-color: #f2f4f5;
+      }
+      .navBar{
+          display: flex;
+          justify-content: space-between;
+          position: fixed;
+          top: 0px;
+          align-items: center;
+      }
+      .navBar .navs{
+          display: flex;
+          align-items: center;
+        
+      }
+      .navBar .navs .nav{
+             color: aliceblue;
+            cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 20px;
+      }
+      .nav button{
+          border: 0;
+          outline: none;
+          padding: 5px 20px;
+          font-size: 12px;
+          border-radius: 20px;
+          color: #333;
+      }
+      .hero{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100vh;
+          background-image: url(images/desktop/image-header.jpg);
+          background-size: cover;
+      }
+      .hero h1{
+          font-size: 50px;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          font-weight: 800;
+          color: #fff;
+          margin-bottom: 20px;
+          font-family: 'Times New Roman', Times, serif;
+      }
+      .hero img{
+         
+          margin-top: 30px;
+          height: 100px;
+      }
+      .transformSection , .designSection{
+          width: 100%;
+          height: 80vh;
+          display: flex;
+          
+      }
+      .transformSection .left {
+          width: 50%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .transformSection .textBox{
+          width: 60%;
+      }
+      .transformSection .right{
+          width: 50%;
+          height: 100%;
+      }
+      .transformSection .right img{
+          width: 100%;
+          height: 100%;
+      }
+      .designSection .left{
+        
+          width: 50%;
+          height: 100%;
+          background-image: url(images/desktop/image-graphic-design.jpg);
+          background-size: cover;
+          position: relative;
+      }
+      .designSection .right{
+         
+          width: 50%;
+          height: 100%;
+          background-image: url(images/desktop/image-photography.jpg);
+          background-size: cover;
+          position: relative;
+      }
+      .leftText , .rightText{
+          width: 70%;
+          position: absolute;
+          bottom: 5%;
+          left: 15%;
+          text-align: center;
+      }
+      .client{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .client h3{
+          text-transform: uppercase;
+          font-size: 20px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          opacity: .5;
+      }
+      .client .boxes{
+          margin-top: 30px;
+          width: 100%;
+          height: 320px;
+          
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          justify-content: center;
+
+      }
+      .client .boxes .box{
+          width: 300px;
+          height: 100%;
+          
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          padding: 30px;
+          text-align: center;
+      }
+      .box img{
+          width: 60px;
+          border-radius: 50%;
+
+      }
+      .box .text p{
+          font-size: 13px;
+          font-weight: 600;
+          text-align: center;
+      }
+      .box .nameAndDegree h5{
+          font-size: 15px;
+          font-weight: 600;
+      }
+      .nameAndDegree .degree{
+          font-size: 10px;
+          font-weight: 600;
+          opacity: .6;
+      }
+      .imageContainer{
+          display: flex;
+          height: 60vh;
+      }
+      .imageContainer .singleImage{
+          width: 25%;
+          height: 100%;
+      }
+      .singleImage img{
+          width: 100%;
+          height: 100%;
+      }
+      .footer{
+          height: 40vh;
+          display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+          background-color: rgb(91, 239, 215);
+      }
+      .footer .navs{
+          display: flex;
+      }
+      .footer .navs .nav{
+          margin: 20px;
+          font-size: 15px;
+          transition:  all .3s ease;
+          cursor: pointer;
+      }
+      .navs .nav:hover{
+          color: #fff;
+      }
+      .social img{
+          margin: 0px 6px;
+          width: 15px;
+      }
+      
+      .transformSection h3 , .designSection h4{
+          font-size: 20px;
+      }
+      .transformSection p , .designSection p{
+          font-size: 13px;
+          font-weight: 600;
+         color: rgb(114, 109, 109);
+      }
+      .transformSection .button1,.button2{
+          
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          font-size: 18px;
+
+      }
+      .transformSection .button1::before{
+          content:" ";
+          position: absolute;
+           bottom: 3px;
+          width:100%;
+          border-radius: 10px;
+          height:7px;
+          background-color: yellow;
+          z-index: -1;
+            
+      }
+      .transformSection .button2::before{
+          content:" ";
+          position: absolute;
+           bottom: 3px;
+          width:100%;
+          border-radius: 10px;
+          height:7px;
+          background-color: rgb(244, 151, 166);
+          z-index: -1;
+            
+      }
+          
+   .navBar .bars{
+   overflow: hidden;
+   cursor: pointer;
+   display: none;
+}
+.bars .bar{
+   width: 30px;
+   height: 3px;
+   margin: 5px 0px;
+   border-radius: 5px;
+   transition: all .3s ease;
+   background-color: #fff;
+}
+.hide{
+     opacity: 0;
+ }
+ .rotate1{
+    transform: rotate(45deg) translate(3px ,8px);
+     
+ 
+
+ }
+ .rotate2{
+    transform: rotate(-45deg) translate(3px ,-8px);
+     
+ 
+
+ }
+ .overlay{
+    position: fixed;
+    text-align: center;
+    width: 300px;
+    z-index: 3;
+    display: none;
+    transition: all .3s ease;
+    background-color: #fff;
+  
+    height: 300px;
+    top: 10%;
+    left: 15%;
+     
+
+ }
+ .overlay .navs{
+     width: auto;
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+ 
+     align-items: center;
+      
+      
+ }
+ .overlay .navs .nav{
+     margin: 20px 0px;
+ }
+ .overlay .shape{
+     width: 0px;
+     height: 0px;
+     position: absolute;
+     right: 0px;
+     top: -20px;
+
+     border-left: 20px solid transparent;
+     border-right:  0px solid transparent;
+     border-bottom:  20px solid #fff;
+   
+ }
+  
+ .show{
+     display: block;
+ }
+      @media only screen and (max-width : 600px){
+    body{
+        width: 100%;
+        height: 100%;
+        position: relative;
+      
+    }
+    .navBar{
+        padding: 20px;
+         
+    }
+    .navBar .bars{
+        display: block;
+    }
+   .navBar .navs{
+        display: none;
+    }
+    
+    .hero{
+        display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        margin: 0;
+        padding: 0px;
+        width: 100%;
+        height: 60vh;
+        background-color: red;
+        background-image: url(images/mobile/image-header.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          text-align: center;
+    }
+    .transformSection{
+        flex-direction: column;
+    }
+    .transformSection .left , .transformSection .right{
+        width: 100%;
+         
+        
+    }
+ 
+    .ds{
+        display: none;
+    }
+    .transformSection .textBox{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+  
+    .s1{
+        flex-direction: column-reverse;
+    }
+    .designSection{
+        flex-direction: column;
+    }
+    .designSection .left , .designSection .right {
+        width: 100%;
+    }
+    .client{
+        width: 100%;
+      
+    }
+    .client h3{
+        margin-top: 50px;
+    }
+    .client .boxes{
+        height: auto;
+        flex-direction: column;
+        padding-bottom: 50px;
+    }
+    .imageContainer{
+        width: 100%;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .imageContainer .singleImage{
+        width: 50%;
+       
+        
+    }
+    .singleImage img{
+        width: 100%;
+
+    }
+}
+
+   
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+        <div class="shape">
+
+        </div>
+        <div class="navs">
+       
+          <div class="nav">About</div>
+          
+          <div class="nav">Services</div>
+           
+          <div class="nav">Project</div>
+          <div class="nav">
+        
+            <button class="btn btn-danger text-white">Contact</button>
+        
+          </div>
+        </div>
+      </div>
+    <div class="container-fluid p-0">
+      <div class="container-fluid  navBar">
+        <div class="navLogo">
+          <img src="images/logo.svg" alt="" />
+        </div>
+        <div class="bars">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+        </div>
+        <div class="navs">
+          <div class="nav">About</div>
+          <div class="nav">Services</div>
+          <div class="nav">Projects</div>
+          <div class="nav">
+              <button> Contact</button>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid hero p-0 ">
+         <h1>  We are creatives</h1>
+         <img src="images/icon-arrow-down.svg" alt="">
+      </div>
+      <div class="container-fluid p-0 transformSection s1">
+          <div class="left">
+            <div class="textBox">
+                <h3>  Transform your brand
+
+                   </h3>
+                   <div class="">
+                       <p>
+                        We are a full-service creative agency specializing in helping brands grow fast. 
+                        Engage your clients through compelling visuals that do most of the marketing for you.
+                      
+                      
+                       </p>
+
+
+                   </div>
+                   <div class="button1">
+                     Learn more 
+                   </div>
+            </div>
+
+          </div>
+          <div class="right">
+              <img src="images/desktop/image-transform.jpg" alt="" class="ds">
+              <img src="images/mobile/image-transform.jpg"  class="mobile" alt="">
+
+          </div>
+
+
+      </div>
+
+      <div class="container-fluid p-0 transformSection s2 ">
+       
+        <div class="right">
+            <img src="images/desktop/image-stand-out.jpg" alt="">
+
+        </div>
+        <div class="left">
+            <div class="textBox">
+                <h3>  Transform your brand
+
+                   </h3>
+                   <div class="">
+                       <p>
+                        We are a full-service creative agency specializing in helping brands grow fast. 
+                        Engage your clients through compelling visuals that do most of the marketing for you.
+                      
+                      
+                       </p>
+
+
+                   </div>
+                   <div class="button2">
+                    Learn more
+                   </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="designSection">
+        <div class="left">
+            <div class="leftText">
+                <h4> Graphic design
+                    </h4>
+                    <div>
+                        <p>
+                            Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.
+                        </p>
+                    </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="leftText">
+                <h4>  Photography
+                    </h4>
+                    <div>
+                        <p>
+                            Great design makes you memorable. We deliver artwork that underscores your brand message and captures potential clients’ attention.
+                        </p>
+                    </div>
+        </div>
+    </div>
+    </div>
+    <div class="client container">
+         <h3>  Client testimonials</h3>
+
+         <div class="boxes">
+             <div class="box">
+                 <img src="images/image-emily.jpg" alt="">
+                 <div class="text">
+                     <p>
+                        We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.
+                     </p>
+                 </div>
+
+                 <div class="nameAndDegree">
+                     <h5>Emily R.
+                      </h5>
+                      <div class="degree">
+                        Marketing Director
+                      </div>
+                 </div>
+             </div>
+             <div class="box">
+                <img src="images/image-thomas.jpg" alt="">
+                <div class="text">
+                    <p>
+                       We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.
+                    </p>
+                </div>
+
+                <div class="nameAndDegree">
+                    <h5>Emily R.
+                     </h5>
+                     <div class="degree">
+                       Marketing Director
+                     </div>
+                </div>
+             </div>
+             <div class="box">
+                <img src="images/image-jennie.jpg" alt="">
+                <div class="text">
+                    <p>
+                       We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.
+                    </p>
+                </div>
+
+                <div class="nameAndDegree">
+                    <h5>Emily R.
+                     </h5>
+                     <div class="degree">
+                       Marketing Director
+                     </div>
+                </div>
+             </div>
+         </div>
+    </div>
+
+
+    <div class="container-fluid p-0 imageContainer">
+        <div class="singleImage"><img src="images/desktop/image-gallery-milkbottles.jpg" alt=""></div>
+        <div class="singleImage"><img src="images/desktop/image-gallery-orange.jpg" alt=""></div>
+        <div class="singleImage"><img src="images/desktop/image-gallery-cone.jpg" alt=""></div>
+        <div class="singleImage"><img src="images/desktop/image-gallery-sugarcubes.jpg" alt=""></div>
+
+    </div>
+
+    <div class="container-fluid p-0 footer">
+         <h2>SunnySide</h2>
+         <div class="navs">
+            <div class="nav">About</div>
+            <div class="nav">Services</div>
+            <div class="nav">Projects</div>
+         </div>
+
+         <div class="social">
+             <img src="images/icon-facebook.svg" alt="">
+             <img src="images/icon-instagram.svg" alt="">
+             <img src="images/icon-twitter.svg" alt="">
+             <img src="images/icon-pinterest.svg" alt="">
+         </div>
+
+    </div>
+
+    
+    </div>
+
+    <script>
+          document.querySelector('.bars').addEventListener('click',()=>{
+                document.querySelector('.bar2').classList.toggle('hide');
+                document.querySelector('.bar1').classList.toggle('rotate1');
+                document.querySelector('.bar3').classList.toggle('rotate2');
+                document.querySelector('.overlay').classList.toggle('show');
+                
+            })
+    </script>
+  </body>
+</html>
